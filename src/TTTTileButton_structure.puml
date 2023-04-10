@@ -1,0 +1,175 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "TTTTileButton",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1703677370 { 
+   	label=Gameplay
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Gameplay1703677370[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Gameplay</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- isColWin(buttons: Vector&lt;Vector&lt;JButton&gt;&gt;, turn: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- isDiagonalWin(buttons: Vector&lt;Vector&lt;JButton&gt;&gt;, turn: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >- isRowWin(buttons: Vector&lt;Vector&lt;JButton&gt;&gt;, turn: String): boolean</TD></TR>
+<TR><TD ALIGN="LEFT" >+ switchTurn(turn: String): String</TD></TR>
+<TR><TD ALIGN="LEFT" >+ whoWins(turn: String, buttons: Vector&lt;Vector&lt;JButton&gt;&gt;): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_81065977 { 
+   	label=TTTFrame
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   TTTFrame81065977[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TTTFrame</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >#   bLeft: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   bMiddle: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   bRight: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   buttons: Vector&lt;Vector&lt;JButton&gt;&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   frame: JFrame [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   info: JPanel [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   justButton: Vector&lt;JButton&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mLeft: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   mRight: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   main: JPanel [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   middle: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   options: JPanel [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   quit: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   scroll: JScrollPane [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tLeft: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tMiddle: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   tRight: JButton [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   table: JPanel [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ info()</TD></TR>
+<TR><TD ALIGN="LEFT" >- options()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ table()</TD></TR>
+<TR><TD ALIGN="LEFT" >+ updateTextBox(prompt: String, results: JTextArea)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_979823500 { 
+   	label=TTTTileButton
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   TTTTileButton979823500[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)TTTTileButton</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ buttonClick(button: JButton, buttons: Vector&lt;JButton&gt;, frame: JFrame, buttonTable: Vector&lt;Vector&lt;JButton&gt;&gt;)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ quit(frame: JFrame)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ resetOrSet(buttons: Vector&lt;JButton&gt;, choice: int, results: JTextArea, frame: JFrame, buttonTable: Vector&lt;Vector&lt;JButton&gt;&gt;)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+
+    
+}
+@enduml
